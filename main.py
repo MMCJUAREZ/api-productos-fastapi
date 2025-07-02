@@ -17,7 +17,7 @@ app.add_middleware(
 
 @app.get("/")
 def inicio():
-    return {"mensaje": "Bienvenido a la API de Productos"}
+    return {"mensaje": "Bienvenido a la API de Productos:Mensaje de prueba"}
 
 # Incluir rutas desde el router
 app.include_router(calculadora_router.router, prefix="/productos", tags=["Productos"])
