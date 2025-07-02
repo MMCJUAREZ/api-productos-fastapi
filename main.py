@@ -2,9 +2,11 @@ from fastapi import FastAPI
 from routers import calculadora_router
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="Calculadora API FastAPI",
-              description="API REST para operaciones matemáticas básicas",
-              version="1.0")
+app = FastAPI(
+    title="API Productos FastAPI",
+    description="API REST para gestión de productos en memoria",
+    version="1.0"
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,7 +17,7 @@ app.add_middleware(
 
 @app.get("/")
 def inicio():
-    return {"mensaje": "Bienvenido a la Calculadora API"}
+    return {"mensaje": "Bienvenido a la API de Productos"}
 
 # Incluir rutas desde el router
-app.include_router(calculadora_router.router, prefix="/calculadora", tags=["Operaciones"])
+app.include_router(calculadora_router.router, prefix="/productos", tags=["Productos"])
